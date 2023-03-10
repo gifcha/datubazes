@@ -8,6 +8,11 @@ var inputPiens = document.getElementById("piens");
 var inputElla = document.getElementById("ella");
 var inputOlas = document.getElementById("olas");
 
+function datums() {
+    var date = dayjs().format('YYYY-MM-DD');
+    inputDatums.value = date;
+}
+
 async function loadData(tabula) {
     const { data, error } = await client.from(tabula).select();
     return data;
@@ -26,18 +31,28 @@ async function ievadit_datus() {
         return
     }
 
-    const { pankukuDati, pError } = await client.from("Pankukas").insert([{ pankuku_skaits: pankukas }]);
+    const { data, error } = await client.from('Registrs').select().eq('datums', datums);
+    if (data.length != 0) {
+        alert('Datubāzē jau ir ieraksts šajā datumā!')
+        return
+    }
+    if (datums == "") {
+        alert("Lūdzu ievadi datumu!");
+        return
+    }
+
+    await client.from("Pankukas").insert([{ pankuku_skaits: pankukas }]);
     const P = await loadData('Pankukas');
     const pankukuId = P[P.length - 1].id // tiko pievienoto datu id
     console.log("data", pankukuId);
 
-    const { izejvieluDati, iError } = await client.from("Izejvielas").insert([{ olas: olas, milti_kg: milti, ella_kg: ella, piens_l: piens }]);
+    await client.from("Izejvielas").insert([{ olas: olas, milti_kg: milti, ella_kg: ella, piens_l: piens }]);
     const I = await loadData('Izejvielas');
     const izejvieluId = I[I.length - 1].id // tiko pievienoto datu id
     console.log("data", izejvieluId);
 
 
-    const { registraDati, rError } = await client.from("Registrs").insert([{ datums: datums, izejvielu_id: izejvieluId, pankuku_id: pankukuId }]);
+    await client.from("Registrs").insert([{ datums: datums, izejvielu_id: izejvieluId, pankuku_id: pankukuId }]);
 
     
     inputPankukas.value = "";
@@ -45,4 +60,6 @@ async function ievadit_datus() {
     inputPiens.value = "";
     inputElla.value = "";
     inputOlas.value = "";
+
+    alert(datums+' datuma dati saglabāti!');
 }

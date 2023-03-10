@@ -8,6 +8,10 @@ var inputPiens = document.getElementById("piens");
 var inputElla = document.getElementById("ella");
 var inputOlas = document.getElementById("olas");
 
+function datums() {
+    var date = dayjs().format('YYYY-MM-DD');
+    inputDatums.value = date;
+}
 
 async function rediget_datus() {
     const datums = inputDatums.value;
@@ -19,6 +23,10 @@ async function rediget_datus() {
 
 
     const { data, error } = await client.from("Registrs").select().eq('datums', datums);
+    if (data.length == 0) {
+        alert(datums+" datumā nav ierakstu!");
+        return
+    }
 
     const pankukuId = data[0].pankuku_id;
     const izejvieluId = data[0].izejvielu_id;
@@ -31,6 +39,8 @@ async function rediget_datus() {
     inputPiens.value = "";
     inputElla.value = "";
     inputOlas.value = "";
+
+    alert(datums+' datuma dati saglabāti!');
 }
 
 async function dzest_datus() { 
@@ -43,4 +53,6 @@ async function dzest_datus() {
     await client.from('Registrs').delete().eq('datums', datums)
     await client.from('Pankukas').delete().eq('id', pankukuId)
     await client.from('Izejvielas').delete().eq('id', izejvieluId)
+
+    alert('Izdzēsti '+datums+' datuma dati!')
 }

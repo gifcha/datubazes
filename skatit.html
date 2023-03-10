@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!-- Icons Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <title>Datubaze</title>
+</head>
+
+<body onload="izejvielu_atlikums(); datums()">
+    <div class="container">
+        <div id="selector" class="text-center">
+            <a href="ievads.html">
+                <button type="button" class="btn btn-light" >Ievadīt datus</button>
+            </a>
+            <a href="rediget.html">
+                <button type="button" class="btn btn-light">Rediģēt datus</button>
+            </a>
+            <button type="button" class="btn btn-dark" disabled>Skatīt datus</button>
+            
+        </div>
+        <div class="text-center">
+            <br>
+            <br>
+            <p>Datums</p>
+            <input type="date" id="datums" class="form-control" placeholder="yyyy-mm-dd" aria-label="Datums">
+            <br>
+            <button type="button" class="btn btn-success" onclick="skatit_datus()">Skatīt datus</button>
+            <br>
+            <br>
+
+            <p>Pankūkas</p>
+            <div class="input-group">
+                <input type="number" step="0.010" id="pankukas" class="form-control" disabled placeholder="Pankūkas gab" aria-label="Pankukas">
+                <div class="input-group-append">
+                    <span class="input-group-text">Pankūkas</span>
+                </div>
+            </div>
+            <p>Milti</p>
+            <div class="input-group">
+                <input type="number" step="0.010" id="milti" class="form-control" disabled placeholder="Milti kg" aria-label="Milti">
+                <div class="input-group-append">
+                    <span class="input-group-text">Milti kg</span>
+                </div>
+            </div>
+            <p>Olas</p>
+            <div class="input-group">
+                <input type="number" step="1" id="olas" class="form-control" disabled placeholder="Olas gab" aria-label="Olas">
+                <div class="input-group-append">
+                    <span class="input-group-text">Olas</span>
+                </div>
+            </div>
+            <p>Piens</p>
+            <div class="input-group">
+                <input type="number" step="0.010" id="piens" class="form-control" disabled placeholder="Piens l" aria-label="Piens">
+                <div class="input-group-append">
+                    <span class="input-group-text">Piens l</span>
+                </div>
+            </div>
+            <p>Eļļa</p>
+            <div class="input-group">
+                <input type="number" step="0.010" id="ella" class="form-control" disabled placeholder="Eļļa kg" aria-label="Ella">
+                <div class="input-group-append">
+                    <span class="input-group-text">Ella kg</span>
+                </div>
+            </div>
+            <br>
+            
+            <p>Izejvielas noliktavā</p>
+            <div class="input-group">
+                <input type="number" step="0.010" id="noliktava_milti" class="form-control" disabled placeholder="Milti kg" aria-label="Milti">
+                <div class="input-group-append">
+                    <span class="input-group-text">Milti kg</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="number" step="1" id="noliktava_olas" class="form-control" disabled placeholder="Olas gab" aria-label="Olas">
+                <div class="input-group-append">
+                    <span class="input-group-text">Olas</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="number" step="0.010" id="noliktava_piens" class="form-control" disabled placeholder="Piens l" aria-label="Piens">
+                <div class="input-group-append">
+                    <span class="input-group-text">Piens l</span>
+                </div>
+            </div>
+            <div class="input-group">
+                <input type="number" step="0.010" id="noliktava_ella" class="form-control" disabled placeholder="Eļļa kg" aria-label="Ella">
+                <div class="input-group-append">
+                    <span class="input-group-text">Ella kg</span>
+                </div>
+            </div>
+            
+            <br>
+            
+
+        </div class="container">
+        <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="skatisana.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
