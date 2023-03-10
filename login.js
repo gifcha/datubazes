@@ -20,6 +20,6 @@ function handleLogin() {
         window.location.replace("ievads.html");
     }
     else {
-        alert('Lietotāja vārds vai parole nav pareiza!');
+        alert('Nepareiza parole vai lietotājvārds!');
     }
 }
