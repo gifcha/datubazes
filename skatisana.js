@@ -1,5 +1,5 @@
-var key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRpZmtqcGlhcGRpbXpuc2VtZWNzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzgzODUyMDgsImV4cCI6MTk5Mzk2MTIwOH0.R4RSdGKgihQF50f-jjWmVFmqMCK1Q4pxlA8cdLqlc0U'
-var client = supabase.createClient('https://difkjpiapdimznsemecs.supabase.co', key)
+var key = "#API key#"
+var client = supabase.createClient("#Supabase link#", key)
 
 var inputDatums = document.getElementById("datums");
 var inputPankukas = document.getElementById("pankukas");
