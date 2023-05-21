@@ -1,3 +1,5 @@
+// sis login nav dross domats tikai paraugam!
+
 var pageName = location.href.split("/").slice(-1);
 if (pageName != 'index.html') {
     checkLogin();
